@@ -12,7 +12,9 @@ module DataSet
       value
     end
 
-    def respond_to_missing?; end
+    def respond_to_missing?(*args)
+      super
+    end
 
     def load_data_source
       @data_source = nil
