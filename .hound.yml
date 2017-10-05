@@ -1,5 +1,6 @@
 AllCops:
   Exclude:
+    - features/step_definitions/**/*
     - data_set.gemspec
     - test/*.rb
     - spec/**/*
@@ -60,3 +61,7 @@ Metrics/MethodLength:
 # Encourage fewer parameters.
 Metrics/ParameterLists:
   Max: 4
+
+# Slightly higher cyclomatic complexity.
+Metrics/CyclomaticComplexity:
+  Max: 7

@@ -1,0 +1,23 @@
+base_url: 'http://testerstories.com'
+
+login:
+  username: tester
+  password: testing
+
+stardate:
+  contexts:
+    tos: the original series
+    tng: the next generation
+
+port: 9292
+euler_number: 2.718
+
+truthhood: true
+falsehood: false
+
+symbolic: :symbol
+
+invalid_conditions:
+  - only letters
+  - some letters
+  - less than four numbers

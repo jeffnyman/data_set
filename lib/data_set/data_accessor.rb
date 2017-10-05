@@ -7,6 +7,7 @@ module DataSet
       key = args.first
       value = @data_source[key.to_s]
       value = args[1] if value.nil?
+      value = yield(key.to_s) if value.nil? && block
       super if value.nil?
       value = DataSet::DataElement.new(value) unless type_known?(value)
       value
@@ -19,8 +20,12 @@ module DataSet
     def load_data_source
       @data_source = nil
       path = "#{data_path}/#{ENV['DATA_SET_FILE']}"
-      @yml = YAML.load_file path if ENV['DATA_SET_FILE']
-      DataSet.load('default.yml') if @data_set.nil?
+      if ENV['DATA_SET_FILE']
+        @data_source = ::YAML.safe_load(ERB.new(
+          File.read(path)
+        ).result(binding))
+      end
+      DataSet.load('default.yml') if @data_source.nil?
     end
 
     private

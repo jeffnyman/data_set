@@ -3,6 +3,7 @@ require "bundler/gem_tasks"
 require "rdoc/task"
 require "rubocop/rake_task"
 require "rspec/core/rake_task"
+require "cucumber/rake/task"
 
 RuboCop::RakeTask.new
 
@@ -21,6 +22,12 @@ namespace :spec do
   end
 end
 
+desc "Run all feature specs"
+task :features do
+  Cucumber::Rake::Task.new(:features) do |t|
+  end
+end
+
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'doc'
   rdoc.main = 'README.md'
@@ -28,4 +35,4 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*', 'lib/**/*.rb')
 end
 
-task default: ['spec:all', :rubocop]
+task default: ['spec:all', 'features', :rubocop]
