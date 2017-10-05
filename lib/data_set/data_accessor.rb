@@ -26,7 +26,8 @@ module DataSet
     private
 
     def type_known?(value)
-      known_types = [String, Integer, TrueClass, FalseClass, Symbol]
+      known_types = [String, Integer, TrueClass, FalseClass,
+                     Symbol, Float, Array]
       known_types.any? { |type| value.is_a?(type) }
     end
   end
