@@ -1,9 +1,7 @@
 # DataSet
 
 [![Gem Version](https://badge.fury.io/rb/data_set.svg)](http://badge.fury.io/rb/data_set)
-[![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jeffnyman/data_set/blob/master/LICENSE.txt)
-
-[![Dependency Status](https://gemnasium.com/jeffnyman/data_set.png)](https://gemnasium.com/jeffnyman/data_set)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jeffnyman/data_set/blob/master/LICENSE.md)
 
 DataSet provides an easy mechanism to load up a set of data from a YAML file and then access that data by the structuring keys of the file. This provides an expressive way to retrieve data values.
 
@@ -15,13 +13,23 @@ To get the latest stable release, add this line to your application's Gemfile:
 gem 'data_set'
 ```
 
-And then include it in your bundle:
+To get the latest code:
 
-    $ bundle
+```ruby
+gem 'data_set', git: 'https://github.com/jeffnyman/data_set'
+```
+
+After doing one of the above, execute the following command:
+
+```
+$ bundle
+```
 
 You can also install DataSet just as you would any other gem:
 
-    $ gem install data_set
+```
+$ gem install data_set
+```
 
 ## Usage
 
@@ -118,7 +126,11 @@ This would allow the specific environment variable to be set conditionally based
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec:all` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment. To install this gem onto your local machine, run `bundle exec rake install`.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec:all` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+The default `rake` command will run all tests as well as a RuboCop analysis.
+
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
@@ -143,4 +155,4 @@ This code is loosely based upon the [FigNewton](https://github.com/cheezy/fig_ne
 ## License
 
 DataSet is distributed under the [MIT](http://www.opensource.org/licenses/MIT) license.
-See the [LICENSE](https://github.com/jeffnyman/data_set/blob/master/LICENSE.txt) file for details.
+See the [LICENSE](https://github.com/jeffnyman/data_set/blob/master/LICENSE.md) file for details.
