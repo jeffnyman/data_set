@@ -55,11 +55,6 @@ Feature: Data Set Functionality
     When asking for the value for "falsehood"
     Then the value should be false
 
-  Scenario: Requesting data that is a symbol
-  Given the test data configuration file
-  When asking for the value for "symbolic"
-  Then the value should be :symbol
-
   Scenario: Requesting data that is an array of values
     Given the test data configuration file
     When asking for the value for "invalid_conditions"

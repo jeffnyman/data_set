@@ -15,7 +15,7 @@ euler_number: 2.718
 truthhood: true
 falsehood: false
 
-symbolic: :symbol
+# symbolic: :symbol
 
 invalid_conditions:
   - only letters

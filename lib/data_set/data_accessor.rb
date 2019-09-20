@@ -3,9 +3,9 @@ require "yaml"
 module DataSet
   module DataAccessor
     def method_missing(*args, &block)
-      load_data_source unless @data_source
+      load_data_source unless @data_contents
       key = args.first
-      value = @data_source[key.to_s]
+      value = @data_contents[key.to_s]
       value = args[1] if value.nil?
       value = yield(key.to_s) if value.nil? && block
       super if value.nil?
@@ -18,14 +18,16 @@ module DataSet
     end
 
     def load_data_source
-      @data_source = nil
+      @data_contents = nil
       path = "#{data_path}/#{ENV['DATA_SET_FILE']}"
+
       if ENV['DATA_SET_FILE']
-        @data_source = ::YAML.safe_load(ERB.new(
+        @data_contents = ::YAML.safe_load(ERB.new(
           File.read(path)
         ).result(binding))
       end
-      DataSet.load('default.yml') if @data_source.nil?
+
+      DataSet.load('default.yml') if @data_contents.nil?
     end
 
     private

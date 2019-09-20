@@ -9,7 +9,7 @@ module DataSet
   extend DataSet::DataAccessor
 
   class << self
-    attr_accessor :data
+    attr_accessor :data_contents
 
     def default_data_path
       'data'

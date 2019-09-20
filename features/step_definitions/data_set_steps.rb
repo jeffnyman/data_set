@@ -1,5 +1,5 @@
 Given("the default configuration file in the default location") do
-  DataSet.data = nil
+  DataSet.data_contents = nil
 end
 
 Given("the test data configuration file") do
@@ -8,10 +8,10 @@ Given("the test data configuration file") do
 end
 
 Given(/^an environment variable named "([^\"]*)" set to "([^\"]*)"$/) do |env_name, filename|
-  DataSet.data = nil
+  DataSet.data_contents = nil
   ENV[env_name] = filename
   DataSet.data_path = 'data/yaml'
-  DataSet.instance_variable_set(:@data_source, nil)
+  DataSet.instance_variable_set(:@data_contents, nil)
 end
 
 When("asking for the value for {string}") do |string|
